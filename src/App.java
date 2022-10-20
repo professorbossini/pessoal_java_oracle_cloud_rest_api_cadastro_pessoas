@@ -7,16 +7,16 @@ import java.util.Properties;
 
 public class App {
   public static void main(String[] args) throws Exception {
-    PessoaService service = new PessoaService();
+    Properties properties = new Properties();
+    properties.load(new FileInputStream("src/app.properties"));
+    PessoaService service =
+      new PessoaService(properties.getProperty("URL"));
     service.listar();
     //comente por enquanto
     // int op;
     // String menu = "1-Cadastrar\n2-Atualizar\n-3-Listar\n4-Remover\n0-Sair";
   }
 }
-    // Properties properties = new Properties();
-    // properties.load(new FileInputStream("src/app.properties"));
-    // System.out.println(properties.getProperty("URL"));
 
     // do {
     //   op = parseInt(showInputDialog(menu));

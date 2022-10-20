@@ -3,9 +3,15 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse.BodyHandlers;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 public class PessoaService {
   private HttpClient client = HttpClient.newHttpClient();
-  private String url = "https://g3e99fc358a3389-pessoahobbiesrest.adb.us-ashburn-1.oraclecloudapps.com/ords/admin/pessoas/";
+
+  //construtor gerado apenas para campos que requerem tratamento
+  //por ser final, precisa ser inicializado
+  private final String url;
 
   public void listar() throws Exception {
     HttpRequest req = HttpRequest.newBuilder()
@@ -14,4 +20,5 @@ public class PessoaService {
     var res = client.send(req, BodyHandlers.ofString());
     System.out.println(res.body());
   }
+  
 }
