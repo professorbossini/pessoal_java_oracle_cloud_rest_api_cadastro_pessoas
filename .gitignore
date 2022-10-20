@@ -1,0 +1,5 @@
+bin
+*.class
+.vscode
+lib
+src/app.properties
