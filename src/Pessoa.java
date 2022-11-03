@@ -16,4 +16,15 @@ public class Pessoa {
     p.setNome("João");
     System.out.println(p.getNome());
   }
+
+  @Override
+  public String toString() {
+    return String.format(
+      "Pessoa[nome:%s, idade:%d, hobby:%s]",
+      nome,
+      idade,
+      hobby
+    );
+  }
+  
 }
